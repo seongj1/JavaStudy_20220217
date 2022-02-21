@@ -6,11 +6,10 @@ public class Operation01 {
 		// 증(가)감(소)연산자
 		int score = 10;
 		//score = score + 1;
-		System.out.println(score++);
 		System.out.println(score--);
 		System.out.println(score);
-		
-		
+		System.out.println(score++);
+		System.out.println(score);
 		
 
 	}
