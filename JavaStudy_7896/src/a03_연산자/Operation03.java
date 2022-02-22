@@ -14,7 +14,17 @@ public class Operation03 {
 		
 		System.out.println(result2);
 		
-
+		int score = 90;
+		char grade = score > -1  && score < 101 ?
+				score > 89 ? 'A' :
+					score > 79 ? 'B' :
+						score > 69 ? 'C':
+							score > 59 ? 'D':
+								score > -1 ? 'F' : 'X' 
+									             : 'X';
+		
+		System.out.println("결과: " + grade);
+		
 	}
 
 }
