@@ -35,7 +35,7 @@ public class SwitchEx {
 		
 		int num = 21;
 		
-		switch(num % 2 ==0 ? 1 : 0 ) {
+		switch(num == 0 ? 2 : num % 2 ) {
 			case 0 :
 				System.out.println("짝수입니다.");
 				break;
