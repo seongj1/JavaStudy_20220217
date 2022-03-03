@@ -6,7 +6,7 @@ public class LoopEx {
 		int num = 0;
 		int result = 0;
 		
-		while(num < 100) {
+		while(num < 1000) {
 			result += (++num);
 		}
 		
