@@ -23,7 +23,7 @@ public class Main {
 		//PageController 객체 안의 index()메소드를 실행하기 위해 생성.
 		pageController.index();
 		
-		
+		 
 	}
 
 }
