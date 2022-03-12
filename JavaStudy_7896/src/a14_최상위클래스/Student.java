@@ -20,7 +20,7 @@ public class Student {
 	
 	/*
 	 * Object클래스에 정의되어 있는 hashCode() 메소드는 물리적 주소값을 리턴하는 기능.
-	 * hashCode() 메소드를 재정의(Override)한다는 것은 '논리적 주소를 만들겠다'는 의미이다.
+	 * hashCode() 메소드를 재정의(Override)한다는 것은 논리적 주소를 만들겠다'는 의미이다.
 	 * 
 	 */
 	
@@ -34,7 +34,7 @@ public class Student {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(name, studentGroup, studentNumber, studentYear);
+		return Objects.hash(studentYear, studentGroup, studentNumber, name);
 	}
 
 	@Override

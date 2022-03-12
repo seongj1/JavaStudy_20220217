@@ -11,14 +11,22 @@ import lombok.NoArgsConstructor;
  * 
  * 
  */
-@NoArgsConstructor
+
+
 @AllArgsConstructor
 @Data
 public class Car {
+	private static int autoincrement;
 	private int serialNumber;
 	private String company;
 	private String model;
 	
+	public Car() {
+		serialNumber += (autoincrement++);
+	}
 	
+	public static int getAutoincreament() {
+		return autoincrement;
+	}
 	
 }

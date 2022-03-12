@@ -1,4 +1,4 @@
-package a16_스태틱;
+ package a16_스태틱;
 
 /*
  * 싱글톤(singleton) 디자인 패턴
