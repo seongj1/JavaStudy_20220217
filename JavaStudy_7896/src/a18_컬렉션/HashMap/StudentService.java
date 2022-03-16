@@ -42,6 +42,7 @@ public class StudentService {
 		}else {
 			System.out.println(name + "의 학생 정보가 존재하지 않습니다.");
 			System.out.println();
+		
 		}
 		
 	}
@@ -56,6 +57,18 @@ public class StudentService {
 	
 	//학생정보 수정
 	public void updateStudentByName(String name, String email, String address) {
+		System.out.println("[" + name + "학생 정보 수정]");
+		
+		Iterator<String> ir = studentMap.keySet().iterator();
+		while(ir.hasNext()) {
+			if(studentMap.containsKey(name)) {
+				studentMap.replace(name, studentMap.get(ir.next()));
+			}else {
+				System.out.println(name + "의 학생 정보가 존재하지 않습니다.");
+				System.out.println();
+				break;
+			}
+		}
 		
 		
 		
@@ -63,6 +76,19 @@ public class StudentService {
 	
 	//학생 정보 삭제 
 	public void deleteStudentByName(String name) {
+		System.out.println("[" + name + "학생 정보 삭제]");
+		Iterator<String> ir = studentMap.keySet().iterator();
+		while(ir.hasNext()) {
+			if(studentMap.containsKey(name)) {
+				studentMap.remove(name);
+				System.out.println(name + "학생 정보가 삭제되었습니다.");
+				System.out.println();
+			}else {
+				System.out.println(name + "의 학생 정보가 존재하지 않습니다.");
+				System.out.println();
+				break;
+			}
+		}
 		
 	}
 
