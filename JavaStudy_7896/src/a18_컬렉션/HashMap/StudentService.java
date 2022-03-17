@@ -15,8 +15,6 @@ public class StudentService {
 		Student student = new Student(name, email, address);
 		
 		studentMap.put(name, student);
-		studentMap.put(email, student);
-		studentMap.put(address, student);
 	}
 	
 	//학생 전체 정보 조회
@@ -57,18 +55,44 @@ public class StudentService {
 	
 	//학생정보 수정
 	public void updateStudentByName(String name, String email, String address) {
-		System.out.println("[" + name + "학생 정보 수정]");
-		
-		Iterator<String> ir = studentMap.keySet().iterator();
-		while(ir.hasNext()) {
-			if(studentMap.containsKey(name)) {
-				studentMap.replace(name, studentMap.get(ir.next()));
-			}else {
-				System.out.println(name + "의 학생 정보가 존재하지 않습니다.");
+		if(studentMap.containsKey(name)) {
+			Student student = studentMap.get(name);
+			if(isEmpty(email) && isEmpty(address)) {
+				System.out.println("수정할 정보가 없습니다.");
 				System.out.println();
-				break;
+			}else {
+				if(isEmpty(email)) {
+					student.setAddress(address);
+				}else if(isEmpty(address)) {
+					student.setEmail(email);
+				}else {
+					student.setEmail(email);
+					student.setAddress(address);
+				}
+				System.out.println("학생 정보가 수정되었습니다.");
+				System.out.println();
 			}
+		
+		}else {
+			System.out.println(name + "의 학생 정보가 존재하지 않습니다.");
+			System.out.println();
 		}
+		
+		
+		
+		
+//		System.out.println("[" + name + "학생 정보 수정]");
+//		
+//		Iterator<String> ir = studentMap.keySet().iterator();
+//		while(ir.hasNext()) {
+//			if(studentMap.containsKey(name)) {
+//				studentMap.replace(name, studentMap.get(ir.next()));
+//			}else {
+//				System.out.println(name + "의 학생 정보가 존재하지 않습니다.");
+//				System.out.println();
+//				break;
+//			}
+//		}
 		
 		
 		
@@ -76,19 +100,30 @@ public class StudentService {
 	
 	//학생 정보 삭제 
 	public void deleteStudentByName(String name) {
-		System.out.println("[" + name + "학생 정보 삭제]");
-		Iterator<String> ir = studentMap.keySet().iterator();
-		while(ir.hasNext()) {
-			if(studentMap.containsKey(name)) {
-				studentMap.remove(name);
-				System.out.println(name + "학생 정보가 삭제되었습니다.");
-				System.out.println();
-			}else {
-				System.out.println(name + "의 학생 정보가 존재하지 않습니다.");
-				System.out.println();
-				break;
-			}
+		if(studentMap.containsKey(name)) {
+			studentMap.remove(name);
+			System.out.println("학생의 정보가 삭제되었습니다.");
+			System.out.println();
+		}else {
+			System.out.println(name + "의 학생 정보가 존재하지 않습니다.");
+			System.out.println();
 		}
+		
+		
+		
+//		System.out.println("[" + name + "학생 정보 삭제]");
+//		Iterator<String> ir = studentMap.keySet().iterator();
+//		while(ir.hasNext()) {
+//			if(studentMap.containsKey(name)) {
+//				studentMap.remove(name);
+//				System.out.println(name + "학생 정보가 삭제되었습니다.");
+//				System.out.println();
+//			}else {
+//				System.out.println(name + "의 학생 정보가 존재하지 않습니다.");
+//				System.out.println();
+//				break;
+//			}
+//		}
 		
 	}
 
