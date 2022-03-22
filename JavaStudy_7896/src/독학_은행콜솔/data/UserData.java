@@ -1,35 +1,27 @@
 package 독학_은행콜솔.data;
 
+import java.util.ArrayList;
+
 import 독학_은행콜솔.model.User;
 
 public class UserData {
-	
-	private User[] users = new User[10];
 	private static UserData instance;
+	private ArrayList<User> userList;
 	
-	private UserData(User[] users) {
-		this.users = users;
+	private UserData() {
+		userList = new ArrayList<User>();
 	}
 	
-	private static UserData getInstance(User[] users){
+	public static UserData getInstance() {
 		if(instance == null) {
-			instance = new UserData(users);
+			instance = new UserData();
 		}
-		return instance;
-		
-	}
-	
-	private static UserData getInstance() {
 		return instance;
 	}
 	
-	private void showUsers() {
-		for(int i = 0; i < users.length; i++) {
-			if(users == null) {
-				continue;
-			}
-			System.out.println(users[i]);
-		}
-		
+	public ArrayList<User> getUserList() {
+		return userList;
 	}
+	
+	
 }

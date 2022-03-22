@@ -2,13 +2,16 @@ package 독학_은행콜솔.view;
 
 import java.util.Scanner;
 
+import 독학_은행콜솔.data.UserData;
 import 독학_은행콜솔.model.User;
 
 public class InputImpl implements Input{ // 원하는 것을 선택하고 나서 세부 입력값도 받아내는 메소드 구현
 	Scanner scanner;
+	UserData userData;
 	
 	public InputImpl(Scanner scanner) {
 		this.scanner = scanner;
+		userData = UserData.getInstance();
 	}
 	
 	public char numberSelect() {
@@ -45,6 +48,7 @@ public class InputImpl implements Input{ // 원하는 것을 선택하고 나서
 		user.setName(scanner.nextLine());
 		System.out.println("계좌 비밀번호: ");
 		user.setAccountPassword(scanner.nextInt());
+		userData.getUserList().add(user);
 		return user;
 	}
 

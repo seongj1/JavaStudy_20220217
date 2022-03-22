@@ -1,6 +1,5 @@
 package a19_예외;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import a18_컬렉션.ArrayList.Student;
@@ -18,7 +17,7 @@ public class ExceptionEx2 {
 		students.add(new Student()); //6
 		students.add(new Student()); //7
 		
-		for(int i = 0; i < students.size() + 1; i++) {
+		for(int i = 0; i < students.size(); i++) {
 				Student student = students.get(i);
 				student.setName("윤성준");
 				System.out.println(student.getName());
