@@ -1,6 +1,7 @@
 package 독학_은행콜솔.model;
 
-public class User {
+public class User { //회원들의 정보를 저장하는 클래스
+	private static int lastIncrement = 0;
 	private String username;
 	private String password;
 	private String name;
@@ -10,18 +11,14 @@ public class User {
 	private int savings;
 	private int money;
 	
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
 
-	public User(String username, String password, String name, String accountNumber, int accountPassword, String rank, int savings, int money) {
+	public User(String username, String password, String name, int accountPassword,int money) {
 		super();
+		accountNumber = "979-01019-0000" + (++lastIncrement);
 		this.username = username;
 		this.password = password;
 		this.name = name;
-		this.accountNumber = accountNumber;
 		this.accountPassword = accountPassword;
-		this.rank = rank;
 	}
 
 	public String getUsername() {
@@ -87,6 +84,14 @@ public class User {
 	public void setMoney(int money) {
 		this.money = money;
 	}
+
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", name=" + name + ", accountNumber="
+				+ accountNumber + ", rank=" + rank + ", savings=" + savings
+				+ ", money=" + money + "]";
+	}
+	
 	
 	
 	

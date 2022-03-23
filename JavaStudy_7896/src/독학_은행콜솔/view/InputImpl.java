@@ -14,7 +14,7 @@ public class InputImpl implements Input{ // 원하는 것을 선택하고 나서
 		userData = UserData.getInstance();
 	}
 	
-	public char numberSelect() {
+	public char numberSelect() { //문자를 입력받는 메서드
 		System.out.println("명령을 입력하세요.");
 		char select = scanner.next().charAt(0);
 		scanner.nextLine();
@@ -31,23 +31,28 @@ public class InputImpl implements Input{ // 원하는 것을 선택하고 나서
 		return login;
 	}
 	
-	public String twoSelect() { //회원가입이 되어있는지 조회하기 위해 아이디를 입력받는 메서드
+	public String twoSelect() { //회원조회하기 위해 아이디를 입력받는 메서드
 		System.out.println("[아이디로 회원조회]");
 		System.out.println("회원아이디: ");
 		return scanner.nextLine();
 	}
 	
 	public User threeSelect() { //회원가입 번호를 입력했을 때 회원의 정보들을 받아서 User 정보에 저장하는 메서드
-		User user = new User();
+		
 		System.out.println("[회원 가입]");
 		System.out.println("회원아이디: ");
-		user.setUsername(scanner.nextLine());
+		String username = scanner.nextLine();
 		System.out.println("회원비밀번호: ");
-		user.setPassword(scanner.nextLine());
+		String password = (scanner.nextLine());
 		System.out.println("회원이름: ");
-		user.setName(scanner.nextLine());
+		String name = scanner.nextLine();
 		System.out.println("계좌 비밀번호: ");
-		user.setAccountPassword(scanner.nextInt());
+		int accountPassword = scanner.nextInt();
+		scanner.nextLine();
+		System.out.println("현재 소지금: ");
+		int money = scanner.nextInt();
+		scanner.nextLine();
+		User user = new User(username, password, name, accountPassword, money);
 		userData.getUserList().add(user);
 		return user;
 	}

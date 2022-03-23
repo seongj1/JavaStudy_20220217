@@ -1,32 +1,40 @@
 package 독학_은행콜솔.service;
 
-import java.util.ArrayList;
-
-import 독학_은행콜솔.data.UserData;
-import 독학_은행콜솔.model.User;
+import java.util.Scanner;
 
 public class AccountServiceImpl implements AccountService{
-	private UserData userData;
+	Scanner scanner;
 	
-	public AccountServiceImpl() {
-		userData = UserData.getInstance();
+	public AccountServiceImpl(Scanner scanner) {
+		this.scanner = scanner;
+	}
+	
+	
+	@Override
+	public void deposit() {
+		
+		System.out.println("입금하실 금액을 입력해주세요: ");
+		scanner.nextInt();
+	}
+	
+	@Override
+	public void withdraw() {
+		System.out.println("출금하실 금액을 입력해주세요: ");
+		scanner.nextInt();
+		System.out.println("계좌의 비밀번호를 입력해주세요: ");
+		scanner.nextInt();
 		
 	}
 	
-	public void Signin(String[] loginData) {
-		ArrayList<User> users = userData.getUserList();
-		for(int i = 0; i < users.size(); i++) {
-			User user = users.get(i);
-			if(user.getUsername().equals(loginData[0])) {
-				if(user.getPassword().equals(loginData[1])) {
-					
-				}else {
-					System.out.println("비밀번호가 틀렸습니다.");
-				}
-			}else {
-				System.out.println("아이다가 틀렸습니다.");
-			}
-		}
+	@Override
+	public void remit() {
+		
+		
+	}
+	
+	@Override
+	public void loan() {
+		
 		
 	}
 	

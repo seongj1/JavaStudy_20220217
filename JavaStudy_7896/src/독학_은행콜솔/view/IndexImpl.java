@@ -12,4 +12,15 @@ public class IndexImpl implements Index{
 		System.out.println("3. 회원가입");
 		System.out.println("q. 프로그램 종료");
 	}
+	
+	@Override
+	public void showMembership() {
+		System.out.println("[회원님을 위한 서비스]");
+		System.out.println("1. 입금");
+		System.out.println("2. 출금");
+		System.out.println("3. 송금");
+		System.out.println("4. 대출");
+		System.out.println("q. 로그아웃");
+		
+	}
 }
