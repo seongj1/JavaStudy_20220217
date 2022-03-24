@@ -2,6 +2,8 @@ package 독학_은행콜솔.controller;
 
 import java.util.Scanner;
 
+import 독학_은행콜솔.model.User;
+import 독학_은행콜솔.service.AccountServiceImpl;
 import 독학_은행콜솔.service.UserServiceImpl;
 import 독학_은행콜솔.view.Index;
 import 독학_은행콜솔.view.Input;
@@ -10,6 +12,7 @@ public class PageContoller {
 	private final Index index;
 	private final Input input;
 	UserServiceImpl userServiceImpl;
+	AccountServiceImpl accountServiceImpl;
 	Scanner scanner = new Scanner(System.in);
 	
 	public PageContoller(Index index, Input input) {
@@ -23,8 +26,7 @@ public class PageContoller {
 			index.show(); //첫 화면 띄워주기 
 			char select = input.numberSelect(); //입력값 받은 메서드에서 받은 값을 select 변수에 저장
 			if(select == '1') { //입력값으로 1이 들어오면 밑에 메서드 실행
-				userServiceImpl.Signin(input.oneSelect()); //로그인을 실행하는 메서드로 이동
-				membership();
+				membership(userServiceImpl.Signin(input.oneSelect()));//로그인을 실행하는 메서드로 이동
 			}else if(select == '2') { //입력값으로 2가 들어오면 밑에 메서드 실행
 				inquire();//아이디로 회원 조회하는 메서드로 이동
 				
@@ -50,14 +52,15 @@ public class PageContoller {
 		}
 	}
 	
-	public void membership() {
+	public void membership(User user) {
+		AccountServiceImpl accountServiceImpl = new AccountServiceImpl(scanner);
 		while(true) {
 			index.showMembership();
 			char select = input.numberSelect();
 			if(select == '1') {
-				
+				accountServiceImpl.deposit(user);
 			}else if(select == '2') {
-				
+				accountServiceImpl.withdraw(user);
 			}else if(select == '3') {
 				
 			}else if(select == '4') {

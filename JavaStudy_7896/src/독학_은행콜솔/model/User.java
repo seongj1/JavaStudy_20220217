@@ -19,6 +19,7 @@ public class User { //회원들의 정보를 저장하는 클래스
 		this.password = password;
 		this.name = name;
 		this.accountPassword = accountPassword;
+		this.money = money;
 	}
 
 	public String getUsername() {
@@ -92,7 +93,15 @@ public class User { //회원들의 정보를 저장하는 클래스
 				+ ", money=" + money + "]";
 	}
 	
+	public int deposit(int money) {
+		savings += money;
+		this.money -= money;
+		return money;
+	}
 	
-	
-	
+	public int withdraw(int money) {
+		savings -= money;
+		this.money += money;
+		return this.money;
+	}
 }

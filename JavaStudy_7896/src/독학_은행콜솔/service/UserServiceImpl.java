@@ -13,21 +13,23 @@ public class UserServiceImpl implements UserService{ //로그인를 위한 인�
 		
 	}
 	
-	public void Signin(String[] loginData) { //로그인 기능을 담당하는 메서드
+	public User Signin(String[] loginData) { //로그인 기능을 담당하는 메서드
 		ArrayList<User> users = userData.getUserList();
+		User info = null;
 		for(int i = 0; i < users.size(); i++) {
 			User user = users.get(i);
 			if(user.getUsername().equals(loginData[0])) {
 				if(user.getPassword().equals(loginData[1])) {
 					System.out.println(user.getName() + "님 반갑습니다.");
-					
+					info = user;
+					return info;
 				}else {
 					System.out.println("비밀번호가 틀렸습니다.");
 				}
 			}else {
 				System.out.println("아이디가 틀렸습니다.");
 			}
-		}
+		}return info;
 		
 	}
 	
