@@ -51,10 +51,23 @@ public class AccountServiceImpl implements AccountService{
 	@Override
 	public void remit(User user) {
 		ArrayList<User> users = userData.getUserList();
-		System.out.println("송금하실 계좌를 입력해주세요: ");
-		String account = scanner.nextLine();
+		System.out.println("송금하실분의 이름을 입력해주세요: ");
+		String username = scanner.nextLine();
 		for(int i = 0; i < users.size(); i++) {
-			if(users.get(i).equals(account)) {
+			if(!(users.get(i).getName().equals(username)) || username == null) {
+				System.out.println("잘못 입력하셨습니다!");
+				return;
+			}else if(users.get(i).getName().equals(username)) {
+				System.out.println("송금하실 금액을 입력해주세요: ");
+				int money = scanner.nextInt();
+				if(money == 0 || money > user.getSavings()) {
+					System.out.println("잘못 입력하셨습니다.");
+					return;
+				}else if(money <= user.getSavings()) {
+					users.get(i).inmoney(money);
+					user.outmoney(money);
+					System.out.println(user.getName() + "님의 잔액은 " + user.getSavings() + "입니다.");
+				}
 				
 			}
 		}

@@ -62,7 +62,7 @@ public class PageContoller {
 			}else if(select == '2') {
 				accountServiceImpl.withdraw(user);
 			}else if(select == '3') {
-				
+				accountServiceImpl.remit(user);
 			}else if(select == '4') {
 				
 			}else if(select == 'q') {

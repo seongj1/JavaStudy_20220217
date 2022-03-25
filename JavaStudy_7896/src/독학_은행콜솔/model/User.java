@@ -104,4 +104,12 @@ public class User { //회원들의 정보를 저장하는 클래스
 		this.money += money;
 		return this.money;
 	}
+	
+	public void outmoney(int money) {
+		this.savings -= money;
+	}
+	
+	public void inmoney(int money) {
+		this.savings += money;
+	}
 }
